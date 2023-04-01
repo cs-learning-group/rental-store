@@ -1,27 +1,28 @@
-# RentalStore
+## Steps to run application
+git clone https://github.com/cs-learning-group/rental-store.git
+npm install - To install node_modules
+ng serve - To run application
+git checkout -b 'branchName'
+git status
+git add . or git add fileName
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Project features
+1. Search functionality for book.
+2. Authentication
+3. Category / author based 
+4. Analytics 
+5. Checkout 
+6. Price Visibility
+7. User profile 
+8. Tracking User purchase
+9. Checking book availability in stores 
+10. Entering book records
+11. Updating book records 
+12. Price updation 
+13. Stores details and location 
+14. Store record entery
+15. Stores reviews 
+16. About-us 
+17. Notification when book arrives 
+18. Show interest 
