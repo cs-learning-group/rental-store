@@ -2,6 +2,7 @@
 git clone https://github.com/cs-learning-group/rental-store.git
 npm install - To install node_modules
 ng serve - To run application
+switch branch to develop: git checkout develop
 git checkout -b 'branchName'
 git status
 git add . or git add fileName
@@ -26,3 +27,5 @@ git add . or git add fileName
 16. About-us 
 17. Notification when book arrives 
 18. Show interest 
+
+
