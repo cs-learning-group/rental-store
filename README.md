@@ -4,7 +4,7 @@ npm install - To install node_modules
 ng serve - To run application
 switch branch to develop: git checkout develop
 git checkout -b 'branchName'
-git status
+git status -to check the file changes in local
 git add . or git add fileName
 
 
