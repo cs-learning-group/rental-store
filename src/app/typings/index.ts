@@ -3,6 +3,7 @@ interface Product {
     productId:number;
     price:number;
     inStock:boolean;
+    discount:number;
     color?:string;
     quantity:number;
     category:string;
