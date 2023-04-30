@@ -1,16 +1,16 @@
-<mat-toolbar color="primary">
-    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
-     <mat-icon>menu</mat-icon>
-   </button>
-   <div class="menu" style="display: flex; gap: 2rem; color: white;">
-    <a routerLink="/login">Login</a> 
-<a routerLink="/register">Register</a>
-</div>
-   <span class="example-spacer"></span>
-   <button mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
-     <mat-icon>favorite</mat-icon>
-   </button>
-   <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
-    <mat-icon>share</mat-icon>
-  </button>
- </mat-toolbar>
+<nav>
+  <div class="container">
+    <h2>SideName</h2>
+    <div class="search-bar">
+      <i class="uil uil-search"></i>
+      <input type="search" placeholder="Search" />
+    </div>
+    <input type="checkbox" id="bar" />
+    <label for="bar" class="bar">|||</label>
+    <div class="button">
+      <p class="link" routerLink="/login">Login</p>
+      <button class="btn" routerLink="/register">SignUp</button>
+    </div>
+  </div>
+</nav>
+<br /><br /><br /><br />
