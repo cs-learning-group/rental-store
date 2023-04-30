@@ -37,8 +37,8 @@ interface User {
 
 interface Address {
     address:string;
+    landMark:string;
     pinCode:number;
-    location:string;
     state?:string;
     city?:string;
 }
@@ -65,8 +65,7 @@ interface Helpline {
 interface Complaint {
     tokenId:number;
     problemType:string;
-    date:string;
-    complaintStatus:string; 
+    date:string; 
     problemDescription:string;
 }
 
