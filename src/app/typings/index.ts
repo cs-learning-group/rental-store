@@ -1,66 +1,80 @@
 interface Product {
-    prductName:string;
-    productId:number;
+    name:string;
+    id:string;
     price:number;
-    inStock:boolean;
-    discount:number;
+    category?:string[];
+    details?:string;
+    reviews?:Review[];
+    version?:string;
     color?:string;
     quantity:number;
-    category:string;
-    productDetails?:string;
-    reviews?:string;
-    version?:string;
-    sellerDetail:Seller;
+    inStock:boolean;
+    // storeDetail:Seller[];
 }
 
-interface Seller {
-    sellerName:string;
-    shopName:string;
-    shopId:number;
-    shopDiscription:string;
-    shopReview:string;
-    shopAddress:Address;
-    sellerProfile: User;
+interface Review {
+    id:string;
+    reviewerId:string;
+    /**
+     * Target Id can be either productId or sellerId for which review is given.
+    */
+   targetId:string;
+   message:string;
+   rating:number;
+   CT: string;
+   UT:string;
+   image?:string[]
 }
+
 
 interface User {
-    userName:string;
-    role:string;
-    userEmailId:string;
-    userPhone:number;
+    id:string;
+    roleId:string[];
+    name:string;
+    firstName:string;
+    lastName:string;
+    emailId?:string;
+    countryCode:string;
+    phone:number;
     gender:string;
-    userPassword:any;
-    userProfileImg:string;
-    purchasedItem?: Product;
-    userAddress:Address;
+    password:string;
+    profileImg?:string;
+    address:Address;
 }
+
+// interface Seller {
+//     sellerName:string;
+//     shopName:string;
+//     shopId:number;
+//     shopDiscription:string;
+//     shopReview:string;
+//     shopAddress:Address;
+//     sellerProfile: User;
+// }
+
 
 interface Address {
-    address:string;
-    landMark:string;
-    pinCode:number;
-    state?:string;
+    id:string;
+    locality:string;
+    locality2?:string;
+    landMark?:string;
     city?:string;
+    state?:string;
+    country:string;
+    pinCode:number;
+    // location:string;
+    // address:string;
 }
 
-interface Admin {
-    adminAuthentication:User;
 
-}
+// interface Delivery {
+//     deliveryProfile:User;
+// }
 
-interface StoreDetail {
-    storeDetail: Seller;
-}
-
-interface Delivery {
-    deliveryProfile:User;
-}
-
-interface Helpline {
-    helplineNumber:number;
-    helplineEmail:string;
-
-}
+// interface Helpline {
+//     helplineNumber:number;
+//     helplineEmail:string;
+// }
 
 interface Complaint {
     tokenId:number;
@@ -69,6 +83,9 @@ interface Complaint {
     problemDescription:string;
 }
 
-interface Inventory {
-    stocks:Product;
+interface Stock {
+    id:string;
+    productId:string;
+    storeId:string;
+    quantity:number;
 }
