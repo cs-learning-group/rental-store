@@ -38,7 +38,7 @@ nav {
   padding: 0.7rem 0;
   -webkit-box-shadow: 0 4px 6px -6px #222;
   -moz-box-shadow: 0 4px 6px -6px #222;
-  box-shadow: 0 4px 6px -6px #222;
+  box-shadow: 0 2px 2px -2px #222;
   position: fixed;
   top: 0;
   z-index: 10;
@@ -131,7 +131,7 @@ h2:hover::after {
     padding: 10px 20px;
     border-bottom-left-radius: 3vh;
     z-index: 999;
-    border-bottom: 1px solid rgb(135, 135, 188);
+    // border-bottom: 1px solid rgb(135, 135, 188);
     position: absolute;
     background-color: hsl(252, 30%, 100%);
     justify-content: center;
