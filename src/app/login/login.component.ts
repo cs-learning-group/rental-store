@@ -18,7 +18,6 @@ export class LoginComponent {
 
   userlogin() {
     console.log(this.loginForm.value);
-
     window.location.href = '/home';
   }
 }
