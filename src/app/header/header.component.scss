@@ -1,30 +1,9 @@
-// .example-spacer {
-//     flex: 1 1 auto;
-//   }
-
-//   .menu {
-//     display: flex;
-//     gap: 2rem;
-//     a {
-//         color: #fff;
-//     }
-//   }
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
   outline: none;
   border: none;
   font-family: "Poppins", sans-serif;
   text-decoration: none;
   list-style-type: none;
-}
-
-body {
-  overflow: hidden;
-
-  background-color: hsl(256, 26%, 83%);
-  color: hsl(252, 30%, 17%);
 }
 
 .container {
@@ -42,26 +21,24 @@ nav {
   position: fixed;
   top: 0;
   z-index: 10;
-}
-
-nav .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .search-bar {
   background-color: hsl(252, 90%, 94%);
   border-radius: 2rem;
   padding: 0.6rem 1rem;
-}
-
-.search-bar input {
-  background: transparent;
-  width: 30vw;
-  margin-left: 1rem;
-  font-size: 0.9rem;
-  color: hsl(252, 30%, 18%);
+  input {
+    background: transparent;
+    width: 30vw;
+    margin-left: 1rem;
+    font-size: 0.9rem;
+    color: hsl(252, 30%, 18%);
+  }
 }
 
 .button {
@@ -79,45 +56,40 @@ nav .container {
   color: white;
   background-color: hsl(252, 75%, 60%);
   transition: all 300ms ease;
-}
-
-.btn:hover {
-  opacity: 0.8;
+  &:hover {
+    opacity: 0.8;
+  }
 }
 
 .link {
   color: hsl(252, 75%, 60%);
 }
 
-.link:hover {
-  text-decoration: underline;
-}
-
-h2::first-letter {
-  font-size: 2rem;
-  color: hsl(252, 75%, 60%);
-}
-
-h2::after {
-  content: "";
-  display: block;
-  width: 90%;
-  height: 2.1px;
-  position: relative;
-  bottom: 5px;
-  background-image: linear-gradient(
-    to right,
-    #4046c7,
-    #006cdd,
-    #008ce9,
-    #0caaee,
-    #5ec5f0
-  );
-  transition: linear 1s;
-}
-
-h2:hover::after {
-  width: 0%;
+h2 {
+  &::first-letter {
+    font-size: 2rem;
+    color: hsl(252, 75%, 60%);
+  }
+  &::after {
+    content: "";
+    display: block;
+    width: 90%;
+    height: 2.1px;
+    position: relative;
+    bottom: 5px;
+    background-image: linear-gradient(
+      to right,
+      #4046c7,
+      #006cdd,
+      #008ce9,
+      #0caaee,
+      #5ec5f0
+    );
+    transition: linear 1s;
+  }
+  &:hover::after {
+    width: 0%;
+  }
 }
 
 .bar,
@@ -131,14 +103,12 @@ h2:hover::after {
     padding: 10px 20px;
     border-bottom-left-radius: 3vh;
     z-index: 999;
-    // border-bottom: 1px solid rgb(135, 135, 188);
-    position: absolute;
     background-color: hsl(252, 30%, 100%);
     justify-content: center;
-    top: 4.5rem;
-    right: 0.1rem;
+    position: fixed;
+    top: 4rem;
+    right: -1rem;
     text-align: center;
-    flex-direction: column;
   }
 
   .bar {
