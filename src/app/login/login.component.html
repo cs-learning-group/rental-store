@@ -1,24 +1,43 @@
-<p>login works!</p>
-<body>
+<section>
   <span class="color-1"></span>
   <span class="color-2"></span>
   <div class="warper">
-    <div class="form">
-      <form>
-        <h1>Sing Up</h1>
-        <input type="text" placeholder="Username" />
-        <input type="password" placeholder="password" />
-      </form>
-    </div>
+    <form [formGroup]="loginForm" (ngSubmit)="userlogin()">
+      <div class="form">
+        <h1>Login</h1>
+        <input
+          formControlName="username"
+          type="text"
+          placeholder="Username or Email"
+        /><span
+          *ngIf="
+            loginForm.get('username')?.invalid &&
+            loginForm.get('username')?.touched
+          "
+          >*Enter a valid email</span
+        >
 
-    <div class="recover">
-      <a href="#">Forgat password</a>
-    </div>
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="password"
+        /><span
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.touched
+          "
+          >*Enter a valid password of min 6 characters</span
+        >
+        <div class="recover">
+          <a href="#">Forgat password</a>
+        </div>
 
-    <button>Login up</button>
+        <button [disabled]="loginForm.invalid">Login up</button>
+      </div>
+    </form>
 
     <div class="member">
       <label>Not a member<a routerLink="/register">Sing Up Here</a></label>
     </div>
   </div>
-</body>
+</section>

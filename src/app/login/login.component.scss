@@ -1,36 +1,31 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800&display=swap");
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Poppins", sans-serif;
-}
-
-body {
+section {
   background: #dfe9f5;
   width: 100%;
-  height: 100vh;
+  height: 89vh;
+  position: fixed;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .color-1 {
+  @extend .common;
   background: #f06292;
-  width: 300px;
-  height: 300px;
   border-bottom-right-radius: 100%;
-  position: absolute;
   top: 0;
   left: 0;
 }
 
-.color-2 {
-  background: purple;
+.common {
   width: 300px;
   height: 300px;
-  border-top-left-radius: 100%;
   position: absolute;
+}
+
+.color-2 {
+  @extend .common;
+  background: purple;
+  border-top-left-radius: 100%;
   bottom: 0;
   right: 0;
 }
@@ -50,43 +45,45 @@ h1 {
   color: #5c6bc0;
 }
 
-form input {
-  display: block;
-  width: 100%;
-  padding: 10px 15px;
-  margin: 8px 0px;
-  border: none;
-  outline: none;
-  border-radius: 30px;
-  background: #e4e4e4;
-}
-
-form input:focus {
-  border: 1px solid #abb2b9;
-  padding: 12px 16px;
+form {
+  input {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    margin: 8px 0px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background: #e4e4e4;
+    &:focus {
+      border: 1px solid #abb2b9;
+      padding: 12px 16px;
+    }
+  }
+  span {
+    color: red;
+    font-size: 11px;
+  }
 }
 
 .term {
   text-align: center;
   margin: 16px 0px;
-}
-
-.term input {
-  vertical-align: middle;
-  height: 14px;
-  width: 14px;
-}
-
-.term label {
-  font-size: 12px;
-  height: 10px;
-  color: #546e7a;
-}
-
-.term a {
-  text-decoration: none;
-  color: #5c6bc0;
-  border-bottom: 1px solid #5c6bc0;
+  input {
+    vertical-align: middle;
+    height: 14px;
+    width: 14px;
+  }
+  label {
+    font-size: 12px;
+    height: 10px;
+    color: #546e7a;
+  }
+  a {
+    text-decoration: none;
+    color: #5c6bc0;
+    border-bottom: 1px solid #5c6bc0;
+  }
 }
 
 button {
@@ -100,39 +97,35 @@ button {
   font-size: 19px;
   font-weight: 600;
   margin: 15px 0px;
-}
-
-button:hover {
-  background: #48528b;
-  transition: 1s;
+  &:hover {
+    background: #48528b;
+    transition: 1s;
+  }
 }
 
 .member {
   text-align: center;
   font-size: 13px;
-}
-
-.member label {
-  color: #546e7a;
-  cursor: pointer;
-}
-
-.member a {
-  margin: 0px 3px;
-  text-decoration: none;
-  border-bottom: 1px solid #5c6bc0;
-  color: #5c6bc0;
+  label {
+    color: #546e7a;
+    cursor: pointer;
+  }
+  a {
+    margin: 0px 3px;
+    text-decoration: none;
+    border-bottom: 1px solid #5c6bc0;
+    color: #5c6bc0;
+  }
 }
 
 .recover {
   font-size: 13px;
   text-align: left;
   margin: 10px 7px;
-}
-
-.recover a {
-  color: #5c6bc0;
-  text-decoration: none;
+  a {
+    color: #5c6bc0;
+    text-decoration: none;
+  }
 }
 
 @media (max-width: 950px) {
