@@ -4,7 +4,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { RouterModule, Routes } from '@angular/router';
 import { HeaderComponent } from './header/header.component';
@@ -17,8 +16,11 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 const routes: Routes = [
   {
-    path: 'login',
-    component: LoginComponent,
+    path: 'Auth',
+    loadChildren: () =>
+      import('./modules/authentication/authentication.module').then(
+        (m) => m.AuthenticationModule
+      ),
   },
   {
     path: 'register',
@@ -42,7 +44,6 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    LoginComponent,
   ],
   imports: [
     BrowserModule,

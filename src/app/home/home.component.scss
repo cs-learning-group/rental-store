@@ -1,10 +1,3 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  list-style: none;
-}
-
 nav {
   background-color: hsl(252, 30%, 100%);
   color: hsl(252, 30%, 17%);
@@ -16,9 +9,6 @@ nav {
 
 .menu {
   display: flex;
-  list-style: none;
-  margin: 0;
-  padding: 0;
 }
 
 .menu > li {
@@ -63,6 +53,46 @@ nav {
 .menu li:hover > ul {
   display: block;
   z-index: 999;
+}
+
+section {
+  $color_1: #ffffff;
+  $color_2: #f2f2f2;
+  $background-color_1: rgba(0, 0, 0, 0.8);
+  $background-color_2: #bbb;
+  $background-color_3: #717171;
+
+  .product-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    .product {
+      width: 31%;
+      margin: 10px;
+      padding: 5px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      text-align: center;
+      img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 1vh;
+        transition: transform 0.5s;
+        &:hover {
+          display: block;
+          transform: scale(1);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .product {
+    width: 90%;
+    margin: 10px auto;
+  }
 }
 
 @media screen and (max-width: 768px) {
