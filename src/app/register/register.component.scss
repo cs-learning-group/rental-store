@@ -1,0 +1,134 @@
+section {
+  background: #dfe9f5;
+  width: 100%;
+  height: 88vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.color-1 {
+  @extend .common;
+  background: #f06292;
+  border-bottom-right-radius: 100%;
+  top: 0;
+  left: 0;
+}
+
+.common {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+}
+
+.color-2 {
+  @extend .common;
+  background: purple;
+  border-top-left-radius: 100%;
+  bottom: 0;
+  right: 0;
+}
+
+.warper {
+  background: #fff;
+  width: 350px;
+  border-radius: 10px;
+  padding: 10px 40px;
+  box-shadow: 4px 20px 35px rgba(0, 0, 0, 0.1);
+  z-index: 99;
+}
+
+h1 {
+  text-align: center;
+  margin: 17px 0px;
+  color: #5c6bc0;
+}
+
+form {
+  input {
+    display: block;
+    width: 100%;
+    padding: 10px 15px;
+    margin: 8px 0px;
+    border: none;
+    outline: none;
+    border-radius: 30px;
+    background: #e4e4e4;
+  }
+  &:focus {
+    border: 1px solid #abb2b9;
+    padding: 12px 16px;
+  }
+  span {
+    font-size: 11px;
+    color: red;
+  }
+}
+
+.term {
+  text-align: center;
+  margin: 16px 0px;
+  input {
+    vertical-align: middle;
+    height: 14px;
+    width: 14px;
+  }
+  label {
+    font-size: 12px;
+    height: 10px;
+    color: #546e7a;
+  }
+  a {
+    text-decoration: none;
+    color: #5c6bc0;
+    border-bottom: 1px solid #5c6bc0;
+  }
+}
+
+button {
+  background: #5c6bc0;
+  width: 100%;
+  border: none;
+  color: #ffff;
+  padding: 10px 15px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 15px 0px;
+  &:hover {
+    background: #48528b;
+    transition: 1s;
+  }
+}
+
+.member {
+  text-align: center;
+  font-size: 13px;
+  label {
+    color: #546e7a;
+    cursor: pointer;
+  }
+  a {
+    margin: 0px 3px;
+    text-decoration: none;
+    border-bottom: 1px solid #5c6bc0;
+    color: #5c6bc0;
+  }
+}
+
+.recover {
+  font-size: 13px;
+  text-align: left;
+  margin: 10px 7px;
+  a {
+    color: #5c6bc0;
+    text-decoration: none;
+  }
+}
+
+@media (max-width: 950px) {
+  .warper {
+    box-shadow: 4px 30px 40px rgba(0, 0, 0, 0.2);
+  }
+}

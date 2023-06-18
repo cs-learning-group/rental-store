@@ -1,0 +1,66 @@
+<section>
+  <span class="color-1"></span>
+  <span class="color-2"></span>
+  <div class="warper">
+    <div class="form">
+      <form [formGroup]="register" (ngSubmit)="usersignup()">
+        <h1>Sing Up</h1>
+        <input
+          formControlName="firstName"
+          type="text"
+          placeholder="FirstName"
+        />
+        <input formControlName="lastName" type="text" placeholder="LastName" />
+
+        <input formControlName="email" type="email" placeholder="email" />
+        <span
+          *ngIf="
+            register.get('email')?.invalid && register.get('email')?.touched
+          "
+          >*Enter a valid email</span
+        >
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="password"
+        />
+        <span
+          *ngIf="
+            register.get('password')?.invalid &&
+            register.get('password')?.touched
+          "
+          >*Enter a valid password of min 6 characters</span
+        >
+
+        <input
+          formControlName="repass"
+          type="password"
+          placeholder="Re-enter-password"
+        />
+        <span
+          *ngIf="
+            register.get('password')?.invalid && register.get('repass')?.touched
+          "
+          >password did not match</span
+        >
+        <button [disabled]="register.invalid">Sing up</button>
+      </form>
+    </div>
+
+    <div class="term">
+      <input type="checkbox" id="checkbox" />
+      <label for="checkbox">
+        i agree to these
+        <a href="https://policies.google.com/terms?hl=en-US"
+          >Term & Conditions</a
+        ></label
+      >
+    </div>
+
+    <div class="member">
+      <label for=""
+        >Already a member<a routerLink="/login" id="">Login Here</a></label
+      >
+    </div>
+  </div>
+</section>

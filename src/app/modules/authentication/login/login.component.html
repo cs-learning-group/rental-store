@@ -1,0 +1,43 @@
+<section>
+  <span class="color-1"></span>
+  <span class="color-2"></span>
+  <div class="warper">
+    <form [formGroup]="loginForm" (ngSubmit)="userlogin()">
+      <div class="form">
+        <h1>Login</h1>
+        <input
+          formControlName="username"
+          type="text"
+          placeholder="Username or Email"
+        /><span
+          *ngIf="
+            loginForm.get('username')?.invalid &&
+            loginForm.get('username')?.touched
+          "
+          >*Enter a valid email</span
+        >
+
+        <input
+          formControlName="password"
+          type="password"
+          placeholder="password"
+        /><span
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.touched
+          "
+          >*Enter a valid password of min 6 characters</span
+        >
+        <div class="recover">
+          <a href="#">Forgat password</a>
+        </div>
+
+        <button [disabled]="loginForm.invalid">Login up</button>
+      </div>
+    </form>
+
+    <div class="member">
+      <label>Not a member<a routerLink="/register">Sing Up Here</a></label>
+    </div>
+  </div>
+</section>
