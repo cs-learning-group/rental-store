@@ -8,15 +8,20 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { RegisterComponent } from 'src/app/register/register.component';
 
 const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
   },
+  {
+    path: 'register',
+    component: RegisterComponent,
+  },
 ];
 @NgModule({
-  declarations: [AuthenticationComponent, LoginComponent],
+  declarations: [AuthenticationComponent, LoginComponent, RegisterComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),

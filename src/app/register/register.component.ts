@@ -7,6 +7,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./register.component.scss'],
 })
 export class RegisterComponent {
+  
   register = new FormGroup({
     firstName: new FormControl(null, [
       Validators.required,
