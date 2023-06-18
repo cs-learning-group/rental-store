@@ -1,53 +1,28 @@
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { RegisterComponent } from './register/register.component';
-import { RouterModule, Routes } from '@angular/router';
-import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
-const routes: Routes = [
-  {
-    path: 'Auth',
-    loadChildren: () =>
-      import('./modules/authentication/authentication.module').then(
-        (m) => m.AuthenticationModule
-      ),
-  },
-  {
-    path: 'register',
-    component: RegisterComponent,
-  },
-  {
-    path: 'home',
-    component: HomeComponent,
-  },
-  {
-    path: '',
-    redirectTo: 'home',
-    pathMatch: 'full',
-  },
-];
 
 @NgModule({
   declarations: [
     AppComponent,
-    RegisterComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent,
+    HomeComponent, 
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -55,7 +30,6 @@ const routes: Routes = [
     MatIconModule,
     MatButtonModule,
     FontAwesomeModule,
-    // AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent],

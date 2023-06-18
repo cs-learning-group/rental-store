@@ -25,9 +25,9 @@ git pull --rebase origin 'branchName'
 9. Checking book availability in stores
 10. Entering book records
 11. Updating book records
-12. Price updation
+12. Price updates
 13. Stores details and location
-14. Store record entery
+14. Store record entry
 15. Stores reviews
 16. About-us
 17. Notification when book arrives
