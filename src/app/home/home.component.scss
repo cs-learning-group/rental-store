@@ -1,61 +1,7 @@
-nav {
-  background-color: hsl(252, 30%, 100%);
-  color: hsl(252, 30%, 17%);
-  box-shadow: 0 2px 2px -2px #222;
-  // color: #fff;
-  display: flex;
-  justify-content: center;
+.main {
+  background-color: #ece7e3;
 }
-
-.menu {
-  display: flex;
-}
-
-.menu > li {
-  margin: 0 15px;
-  position: relative;
-}
-
-.menu > li > a {
-  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
-    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
-  color: hsl(252, 30%, 17%);
-  display: block;
-  font-size: 17px;
-  padding: 9px 19px;
-  text-decoration: none;
-}
-
-.menu ul {
-  background-color: #fff;
-  border-radius: 4px;
-  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
-  display: none;
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  top: 35px;
-  width: 200px;
-}
-
-.menu ul li {
-  margin: 0;
-}
-
-.menu ul li a {
-  color: #333;
-  display: block;
-  font-size: 14px;
-  padding: 10px 15px;
-  text-decoration: none;
-}
-
-.menu li:hover > ul {
-  display: block;
-  z-index: 999;
-}
-
-section {
+.section-1 {
   $color_1: #ffffff;
   $color_2: #f2f2f2;
   $background-color_1: rgba(0, 0, 0, 0.8);
@@ -66,12 +12,11 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: wrap;
     .product {
       width: 31%;
       margin: 10px;
       padding: 5px;
-      border: 1px solid #ddd;
+      border: 1px solid #989696;
       border-radius: 5px;
       text-align: center;
       img {
@@ -92,32 +37,5 @@ section {
   .product {
     width: 90%;
     margin: 10px auto;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  nav {
-    text-align: left;
-    justify-content: flex-start;
-  }
-  nav ul {
-    flex-direction: column;
-  }
-
-  .menu > li {
-    margin: 15px 0;
-    position: relative;
-    width: 100%;
-  }
-
-  .menu > li > a {
-    border-bottom: 1px solid #fff;
-    /* padding: 15px 20px; */
-  }
-
-  .menu ul {
-    left: 0;
-    top: auto;
-    width: 100%;
   }
 }

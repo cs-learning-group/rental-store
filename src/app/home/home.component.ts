@@ -16,4 +16,19 @@ interface Products {
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent {}
+export class HomeComponent {
+  images = [
+    {
+      imageSrc: 'assets/img1.jpg',
+      imageAlt: 'image1',
+    },
+    {
+      imageSrc: 'assets/img2.jpg',
+      imageAlt: 'image2',
+    },
+    {
+      imageSrc: 'assets/img3.jpg',
+      imageAlt: 'image3',
+    },
+  ];
+}

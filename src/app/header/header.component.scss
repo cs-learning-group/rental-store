@@ -1,19 +1,13 @@
 * {
-  outline: none;
-  border: none;
   font-family: "Poppins", sans-serif;
-  text-decoration: none;
-  list-style-type: none;
+  border: none;
+  outline: none;
 }
 
-.container {
-  margin: 0 auto;
-  width: 80%;
-}
-
-nav {
+.nav1 {
+  position: relative;
   width: 100%;
-  background-color: hsl(252, 30%, 100%);
+  background-color: hsl(0, 0%, 91%);
   padding: 0.7rem 0;
   -webkit-box-shadow: 0 4px 6px -6px #222;
   -moz-box-shadow: 0 4px 6px -6px #222;
@@ -29,15 +23,18 @@ nav {
 }
 
 .search-bar {
-  background-color: hsl(252, 90%, 94%);
+  background-color: hsl(251, 46%, 85%);
   border-radius: 2rem;
   padding: 0.6rem 1rem;
   input {
     background: transparent;
-    width: 30vw;
+    width: 32vw;
     margin-left: 1rem;
     font-size: 0.9rem;
     color: hsl(252, 30%, 18%);
+  }
+  button {
+    background-color: hsl(251, 46%, 85%);
   }
 }
 
@@ -97,19 +94,70 @@ h2 {
   display: none;
 }
 
+.nav2 {
+  background-color: hsl(0, 0%, 91%);
+  margin-top: 4.9rem;
+  color: hsl(252, 30%, 17%);
+  box-shadow: 0 2px 2px -2px #222;
+  display: flex;
+  justify-content: center;
+  .menu {
+    ul {
+      background-color: #fff;
+      border-radius: 4px;
+      box-shadow: 0 3px 12px rgba(0, 0, 0, 0.15);
+      display: none;
+      margin: 0;
+      padding: 0;
+      position: absolute;
+      top: 35px;
+      width: 200px;
+      li {
+        margin: 0;
+        a {
+          color: #333;
+          display: block;
+          font-size: 14px;
+          padding: 10px 15px;
+          text-decoration: none;
+        }
+      }
+    }
+    li {
+      margin: 0 15px;
+      position: relative;
+      a {
+        font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+          "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+        color: hsl(252, 30%, 17%);
+        display: block;
+        font-size: 17px;
+        padding: 9px 19px;
+        text-decoration: none;
+      }
+    }
+  }
+}
+.menu li:hover > ul {
+  display: block;
+  z-index: 999;
+}
+
 @media (max-width: 767px) {
   .button {
     display: none;
     padding: 10px 20px;
     border-bottom-left-radius: 3vh;
     z-index: 999;
-    // background-color: hsl(252, 30%, 100%);
     background-color: var(--white);
     justify-content: center;
     position: fixed;
     top: 4rem;
     right: -1rem;
     text-align: center;
+    button {
+      display: block;
+    }
   }
 
   .bar {
@@ -118,5 +166,36 @@ h2 {
   }
   #bar:checked ~ .button {
     display: block;
+  }
+  .nav2 {
+    text-align: left;
+    justify-content: flex-start;
+    .menu {
+      li {
+        margin-bottom: 1vh;
+      }
+      ul {
+        left: 0;
+        top: auto;
+        width: 100%;
+        flex-direction: column;
+        li {
+          margin: 15px 0;
+          position: relative;
+          width: 100%;
+          a {
+            border-bottom: 1px solid #fff;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (min-width: 767px) {
+  .menu {
+    display: flex;
+    margin: 0 auto;
+    width: 80%;
   }
 }
