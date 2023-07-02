@@ -21,3 +21,12 @@ body {
 a {
   text-decoration: none !important;
 }
+.flex {
+  display: flex;
+}
+.justify-space-between {
+  justify-content: space-between;
+}
+.align-baseline {
+  align-items: baseline;
+}
