@@ -1,17 +1,21 @@
 <section class="container">
-  <ng-container *ngFor="let item of productDetail">
+  <ng-container *ngFor="let product of productDetails">
     <div class="product">
-      <img src="{{ item.image }}" alt="" />
+      <img src="{{ product.image }}" alt="" />
       <h3 class="mp-0">
-        <p class="mp-0">{{ item.category }}</p>
-        <strong>{{ item.name }}</strong>
+        <p class="mp-0">{{ product.category }}</p>
+        <strong>{{ product.name }}</strong>
       </h3>
-      <h3 class="mp-0"><strong>price:</strong>{{ item.price }}</h3>
-      <button (click)="addToCart(item)">Add To Cart</button>
-      <div class="quantity-group">
-        <button (click)="handleQuantity('min')">-</button>
-        <input type="text" value="{{ productQuantity }}" />
-        <button (click)="handleQuantity('plus')">+</button>
+      <h3 class="product-price"><strong>price:</strong>{{ product.price }}</h3>
+      <div class="flex justify-space-between align-baseline">
+        <button mat-flat-button (click)="addToCart(product)">
+          Add To Cart
+        </button>
+        <div class="flex quantity-group">
+          <button (click)="handleQuantity(product, 'min')">-</button>
+          <input type="text" value="{{ product.quantity }}" />
+          <button (click)="handleQuantity(product, 'plus')">+</button>
+        </div>
       </div>
     </div>
   </ng-container>

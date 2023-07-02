@@ -10,7 +10,7 @@ export interface login {
   password: string | number;
 }
 
-export interface Product {
+export interface BaseProduct {
   image: string;
   name: string;
   id?: string;
@@ -20,9 +20,13 @@ export interface Product {
   reviews?: Review[];
   version?: string;
   color?: string;
-  quantity?: number;
+  inventoryCount?: number;
   inStock?: boolean;
   // storeDetail:Seller[];
+}
+
+export interface CartProduct extends BaseProduct {
+  quantity?: number;
 }
 
 interface Review {
