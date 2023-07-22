@@ -1,0 +1,13 @@
+<section class="container">
+  <ng-container *ngFor="let item of productDetail">
+    <div class="product">
+      <img src="{{ item.image }}" alt="" />
+      <h3 class="mp-0">
+        <p class="mp-0">{{ item.category }}</p>
+        <strong>{{ item.name }}</strong>
+      </h3>
+      <h3 class="mp-0"><strong>price:</strong>{{ item.price }}</h3>
+      <button (click)="addToCart(item)">Add To Cart</button>
+    </div>
+  </ng-container>
+</section>

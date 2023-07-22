@@ -35,9 +35,12 @@ nav {
   input {
     background: transparent;
     width: 30vw;
-    margin-left: 1rem;
+    margin-left: 0rem;
     font-size: 0.9rem;
     color: hsl(252, 30%, 18%);
+  }
+  #GoSearch {
+    background-color: hsl(252, 90%, 94%);
   }
 }
 
@@ -66,6 +69,7 @@ nav {
 }
 
 h2 {
+  cursor: pointer;
   &::first-letter {
     font-size: 2rem;
     color: var(--purple);
@@ -76,7 +80,7 @@ h2 {
     width: 90%;
     height: 2.1px;
     position: relative;
-    bottom: 5px;
+    bottom: 2px;
     background-image: linear-gradient(
       to right,
       #4046c7,
@@ -93,10 +97,14 @@ h2 {
 }
 
 .bar,
-#bar {
+#bar,
+#mcart {
   display: none;
 }
 
+.cart {
+  cursor: pointer;
+}
 @media (max-width: 767px) {
   .button {
     display: none;
@@ -112,11 +120,20 @@ h2 {
     text-align: center;
   }
 
+  #mcart {
+    cursor: pointer;
+    display: block;
+    margin-right: -1.4rem;
+  }
+
   .bar {
     font-size: 24px;
     display: block;
   }
   #bar:checked ~ .button {
     display: block;
+    .cart {
+      display: none;
+    }
   }
 }
