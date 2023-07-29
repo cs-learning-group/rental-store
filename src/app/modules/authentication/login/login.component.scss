@@ -41,7 +41,7 @@ section {
 
 h1 {
   text-align: center;
-  margin: 17px 0px;
+  margin: 5px 0px;
   color: #5c6bc0;
 }
 
@@ -63,6 +63,12 @@ form {
   span {
     color: red;
     font-size: 11px;
+  }
+  .loginError {
+    font-size: 1.5vh;
+    color: red;
+    margin-left: 2rem;
+    text-align: center;
   }
 }
 

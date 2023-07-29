@@ -3,7 +3,11 @@
   <span class="color-2"></span>
   <div class="warper">
     <div class="form">
-      <form [formGroup]="register" (ngSubmit)="usersignup(register.value)">
+      <form
+        [formGroup]="register"
+        #signUp="ngForm"
+        (ngSubmit)="usersignup(signUp.value)"
+      >
         <h1>Sing Up</h1>
         <input
           formControlName="firstName"
@@ -43,7 +47,7 @@
           "
           >password did not match</span
         >
-        <button [disabled]="register.invalid">Sing up</button>
+        <button>Sing up</button>
       </form>
     </div>
 

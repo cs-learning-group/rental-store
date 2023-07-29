@@ -2,17 +2,17 @@
   <span class="color-1"></span>
   <span class="color-2"></span>
   <div class="warper">
-    <form [formGroup]="loginForm" (ngSubmit)="userlogin()">
+    <form
+      [formGroup]="loginForm"
+      #login="ngForm"
+      (ngSubmit)="userlogin(login.value)"
+    >
       <div class="form">
         <h1>Login</h1>
-        <input
-          formControlName="username"
-          type="text"
-          placeholder="Username or Email"
-        /><span
+        <strong class="loginError">{{ showLoginFailed }}</strong>
+        <input formControlName="email" type="text" placeholder="Email" /><span
           *ngIf="
-            loginForm.get('username')?.invalid &&
-            loginForm.get('username')?.touched
+            loginForm.get('email')?.invalid && loginForm.get('email')?.touched
           "
           >*Enter a valid email</span
         >
