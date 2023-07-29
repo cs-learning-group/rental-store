@@ -4,9 +4,25 @@
       "firstName": "Aaditya",
       "lastName": "Mishra",
       "email": "mishraaaditya297@gmail.com",
-      "password": "90909090",
-      "repass": "90909090",
+      "password": "909090",
+      "repass": "909090",
       "id": 1
+    },
+    {
+      "firstName": "nitesh",
+      "lastName": "pandey",
+      "email": "ss@gmail.com",
+      "password": "909090",
+      "repass": "909090",
+      "id": 2
+    },
+    {
+      "firstName": "dummy",
+      "lastName": "user",
+      "email": "dummyuser@gmail.com",
+      "password": "890890",
+      "repass": "890890",
+      "id": 3
     }
   ]
 }

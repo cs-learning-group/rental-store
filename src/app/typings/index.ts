@@ -1,14 +1,27 @@
-interface Product {
+export interface signUp {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string | number;
+}
+
+export interface login {
+  email: string;
+  password: string | number;
+}
+
+export interface Product {
+  image: string;
   name: string;
-  id: string;
+  id?: string;
   price: number;
-  category?: string[];
+  category?: string;
   details?: string;
   reviews?: Review[];
   version?: string;
   color?: string;
-  quantity: number;
-  inStock: boolean;
+  quantity?: number;
+  inStock?: boolean;
   // storeDetail:Seller[];
 }
 
