@@ -1,0 +1,72 @@
+<section class="section">
+  <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+    <label>
+      Product Name:
+      <input type="text" formControlName="productName" />
+      <div
+        class="error"
+        *ngIf="
+          productForm.get('productName')?.invalid &&
+          productForm.get('productName')?.touched
+        "
+      >
+        Product name is required.
+      </div>
+    </label>
+    <label>
+      Product Image:
+      <input type="text" formControlName="productImage" />
+      <div
+        class="error"
+        *ngIf="
+          productForm.get('productImage')?.invalid &&
+          productForm.get('productImage')?.touched
+        "
+      >
+        Product Image is required.
+      </div>
+    </label>
+
+    <label>
+      Description:
+      <textarea formControlName="description"></textarea>
+      <div
+        class="error"
+        *ngIf="
+          productForm.get('description')?.invalid &&
+          productForm.get('description')?.touched
+        "
+      >
+        Description is required.
+      </div>
+    </label>
+
+    <label>
+      Price:
+      <input type="number" formControlName="price" />
+      <div
+        class="error"
+        *ngIf="
+          productForm.get('price')?.invalid && productForm.get('price')?.touched
+        "
+      >
+        Price is required. Price must be greater than or equal to 0.
+      </div>
+    </label>
+
+    <label>
+      Category:
+      <input type="text" formControlName="category" />
+      <div
+        class="error"
+        *ngIf="
+          productForm.get('price')?.invalid && productForm.get('price')?.touched
+        "
+      >
+        Category is required.
+      </div>
+    </label>
+
+    <button type="submit" [disabled]="productForm.invalid">Add Product</button>
+  </form>
+</section>

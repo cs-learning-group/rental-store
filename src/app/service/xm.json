@@ -23,6 +23,14 @@
       "password": "890890",
       "repass": "890890",
       "id": 3
+    },
+    {
+      "firstName": "dum",
+      "lastName": "user",
+      "email": "dum@gmail.com",
+      "password": "mishra00",
+      "repass": "mishra00",
+      "id": 4
     }
   ]
 }

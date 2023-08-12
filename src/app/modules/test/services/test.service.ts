@@ -8,7 +8,6 @@ import { BaseProduct } from 'src/app/typings';
 })
 export class TestService {
   constructor(private httpClient: HttpClient) {}
-
   public getUsers(): Observable<BaseProduct[]> {
     return this.httpClient.get<BaseProduct[]>('http://localhost:3000/users');
   }
