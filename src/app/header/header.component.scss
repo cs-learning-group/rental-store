@@ -1,139 +1,103 @@
-* {
-  outline: none;
-  border: none;
-  font-family: "Poppins", sans-serif;
-  text-decoration: none;
-  list-style-type: none;
-}
-
-.container {
-  margin: 0 auto;
-  width: 80%;
-}
-
-nav {
-  width: 100%;
-  background-color: hsl(252, 30%, 100%);
-  padding: 0.7rem 0;
-  -webkit-box-shadow: 0 4px 6px -6px #222;
-  -moz-box-shadow: 0 4px 6px -6px #222;
-  box-shadow: 0 2px 2px -2px #222;
-  position: fixed;
-  top: 0;
-  z-index: 10;
+.header {
+  background-color: #f0ecec;
+  color: var(--black);
+  padding: 2vh 0;
+  border-bottom: 1px solid rgb(77, 73, 73);
   .container {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 95%;
   }
-}
-
-.search-bar {
-  background-color: hsl(252, 90%, 94%);
-  border-radius: 2rem;
-  padding: 0.6rem 1rem;
-  input {
-    background: transparent;
-    width: 30vw;
-    margin-left: 0rem;
-    font-size: 0.9rem;
-    color: hsl(252, 30%, 18%);
-  }
-  #GoSearch {
-    background-color: hsl(252, 90%, 94%);
-  }
-}
-
-.button {
-  display: flex;
-  align-items: center;
-  gap: 2rem;
-}
-
-.btn {
-  display: inline-block;
-  padding: 0.6rem 2rem;
-  font-weight: 500;
-  border-radius: 2rem;
-  cursor: pointer;
-  color: var(--white);
-  background-color: #6b4ce6;
-  transition: all 300ms ease;
-  &:hover {
-    opacity: 0.8;
-  }
-}
-
-.link {
-  color: var(--purple);
-}
-
-h2 {
-  cursor: pointer;
-  &::first-letter {
-    font-size: 2rem;
-    color: var(--purple);
-  }
-  &::after {
-    content: "";
-    display: block;
-    width: 90%;
-    height: 2.1px;
-    position: relative;
-    bottom: 2px;
-    background-image: linear-gradient(
-      to right,
-      #4046c7,
-      #006cdd,
-      #008ce9,
-      #0caaee,
-      #5ec5f0
-    );
-    transition: linear 1s;
-  }
-  &:hover::after {
-    width: 0%;
-  }
-}
-
-.bar,
-#bar,
-#mcart {
-  display: none;
-}
-
-.cart {
-  cursor: pointer;
-}
-@media (max-width: 767px) {
-  .button {
-    display: none;
-    padding: 10px 20px;
-    border-bottom-left-radius: 3vh;
-    z-index: 999;
-    // background-color: hsl(252, 30%, 100%);
-    background-color: var(--white);
-    justify-content: center;
-    position: fixed;
-    top: 4rem;
-    right: -1rem;
-    text-align: center;
-  }
-
-  #mcart {
+  .h2 {
     cursor: pointer;
-    display: block;
-    margin-right: -1.4rem;
+    &::first-letter {
+      font-size: 2rem;
+      color: var(--purple);
+    }
+    &::after {
+      content: "";
+      display: block;
+      width: 90%;
+      height: 2.1px;
+      position: relative;
+      bottom: 2px;
+      background-image: linear-gradient(
+        to right,
+        #4046c7,
+        #006cdd,
+        #008ce9,
+        #0caaee,
+        #5ec5f0
+      );
+      transition: linear 1s;
+    }
+    &:hover::after {
+      width: 0%;
+    }
   }
-
-  .bar {
-    font-size: 24px;
-    display: block;
+  .search-container {
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: box-shadow 0.3s ease-in-out;
+    &:hover {
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .search-input {
+      border: none;
+      padding: 8px 15px;
+      border-radius: 30px 0 0 30px;
+      font-size: 16px;
+      width: 30vw;
+      outline: none;
+      transition: width 0.3s ease-in-out;
+      &:focus {
+        max-width: 25vw;
+      }
+    }
+    .search-button {
+      background-color: var(--purple);
+      color: white;
+      border: none;
+      border-radius: 0 3vh 3vh 0;
+      padding: 10px 20px;
+      cursor: pointer;
+      transition: background-color 0.3s ease-in-out;
+      &:hover {
+        background-color: #2980b9;
+      }
+    }
   }
-  #bar:checked ~ .button {
-    display: block;
-    .cart {
-      display: none;
+  .list {
+    ul {
+      display: inline-flex;
+      gap: 2.4vh;
+      li {
+        a {
+          color: var(--black);
+          font-weight: 600;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+@media screen and (max-width: 768px) {
+  .container,
+  .list > ul {
+    flex-direction: column;
+    .list > ul {
+      margin-top: 1vh;
+    }
+    .search-container {
+      input[type="text"] {
+        width: 100%;
+      }
     }
   }
 }
