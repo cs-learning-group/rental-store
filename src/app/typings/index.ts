@@ -13,7 +13,7 @@ export interface login {
 export interface BaseProduct {
   image: string;
   name: string;
-  id?: string;
+  id?: number;
   price: number;
   category?: string;
   details?: string;

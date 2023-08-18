@@ -1,0 +1,26 @@
+.cart-page {
+  margin-top: 40px;
+  .details {
+    img {
+      height: 12vh;
+    }
+    ul {
+      list-style-type: none;
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #ddd;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+    .form-button {
+      padding: 4px 15px;
+      border: 1px solid var(--purple);
+      background-color: var(--white);
+      border-radius: 1rem;
+      color: var(--purple);
+      &:hover {
+        background-color: #dcdcdc;
+      }
+    }
+  }
+}
