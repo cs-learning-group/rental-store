@@ -23,4 +23,27 @@
       }
     }
   }
+  .quantity {
+    .input-text {
+      width: 35px;
+      height: 39px;
+      text-align: center;
+      background-color: transparent;
+      border: 1px solid #efefef;
+      &:hover {
+        background: #eeeeee;
+      }
+    }
+    .minus,
+    .plus {
+      padding: 7px 10px 8px;
+      height: 41px;
+      background-color: #ffffff;
+      border: 1px solid #efefef;
+      cursor: pointer;
+      &:hover {
+        background: #eeeeee;
+      }
+    }
+  }
 }
