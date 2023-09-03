@@ -9,10 +9,22 @@
           <span> {{ cart.name }}</span>
         </li>
         <li>
+          <span> {{ cart.category }}</span>
+        </li>
+        <li>
           <span> Price : {{ cart.price }}</span>
         </li>
         <li>
-          <span> Quantity : {{ cart.quantity }}</span>
+          <div class="quantity">
+            <input type="button" value="-" class="minus" />
+            <input
+              type="number"
+              value="{{ cart.quantity }}"
+              min="1"
+              class="input-text"
+            />
+            <input type="button" value="+" class="plus" />
+          </div>
         </li>
         <li>
           <button class="form-button" (click)="removeToCart(cart.id)">

@@ -26,7 +26,7 @@ export interface BaseProduct {
 }
 
 export interface CartProduct extends BaseProduct {
-  quantity?: number;
+  quantity: number;
 }
 
 interface Review {
