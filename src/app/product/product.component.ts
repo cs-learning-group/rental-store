@@ -61,14 +61,14 @@ export class ProductComponent implements OnInit {
       if (this.isItemAvailableInCart(currentProduct)) {
         /**
          * Ye block tabhi execute hoga jab currentProduct buyer cart array me already available rahega
-         * buyerKaCart = [{}]/ [{}, {}]/ [{}, {}, {}, ...{}];
+         * buyerKaCart = [{}]/ [{}, {}]/ [{}, {}, {}, ...{}]; a
          */
         
         const buyerCartMeCurrentProductKaIndex = this.buyerKaCart.findIndex(
           (product: CartProduct) => product.name === currentProduct.name
         );
         this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity += 1; 
-        
+
         currentProduct.quantity = this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity;
         localStorage.setItem('cart', JSON.stringify(this.buyerKaCart));
       } else {
