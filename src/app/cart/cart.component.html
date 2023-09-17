@@ -16,14 +16,13 @@
         </li>
         <li>
           <div class="quantity">
-            <input type="button" value="-" class="minus" />
-            <input
-              type="number"
-              value="{{ cart.quantity }}"
-              min="1"
-              class="input-text"
-            />
-            <input type="button" value="+" class="plus" />
+            <button class="minus" (click)="handleQuantity(cart, 'min')">
+              -
+            </button>
+            <input type="text" value="{{ cart.quantity }}" />
+            <button class="plus" (click)="handleQuantity(cart, 'plus')">
+              +
+            </button>
           </div>
         </li>
         <li>

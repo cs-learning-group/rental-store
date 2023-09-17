@@ -9,81 +9,99 @@ import { ProductService } from '../modules/test/services/product.service';
 })
 export class ProductComponent implements OnInit {
   public productDetails?: CartProduct[];
-  public cartProduct?: CartProduct[] = [];
+
+  public buyerKaCart: CartProduct[] = JSON.parse(
+    localStorage.getItem('cart') ?? '[]'
+  );
   constructor(private testService: ProductService) {}
 
   ngOnInit(): void {
     this.testService.getProducts().subscribe((res: any[]) => {
       res.map((produt) => (produt.quantity = 0));
       this.productDetails = res;
-      // this.productDetails[0].quantity = 0 as any;
-      // this.handleQuantity(this.productDetails[0], 'plus');
-      // console.log(this.productDetails);
     });
   }
 
+  /**
+   * Increase or Decrease the quantity of a product
+   * @param product
+   * @param val
+   */
   public handleQuantity(product: CartProduct, val: string): void {
-    console.log(product);
     if (
       val === 'plus' &&
       product.quantity != null &&
       product.quantity != undefined &&
       product.quantity < (product.inventoryCount || 0)
     ) {
-      console.log('if');
       ++product.quantity;
     } else if (val === 'min' && product.quantity && product.quantity > 1) {
       console.log('else');
       --product.quantity;
     }
-    console.log('eof');
   }
 
   /* 
-- is item available in stock  - Done
+- is item available in stock   - Done
 - is item available in cart   - Done
-- if available in cart, increment thier quantity  - Done
-- if not available in cart, push item to cart
+- if available in cart, increment their quantity  - Done
+- if not available in cart, push item to cart - Done
+- same product should not be added - Done
 - product quantity should be sync in cart and product tile
-- same product should not be added 
-- 
   */
 
-  public addToCart(product: CartProduct): void {
-    if (product.inventoryCount != 0) {
-      if (this.isItemAvailableInCart(product)) {
-        product.quantity + 1;
+  /**
+   * Adding item to cart
+   * @param currentProduct
+   */
+  public addToCart(currentProduct: CartProduct): void {
+    /** Jab user currentProduct ke add to Cart button pe click karega */
+    if (currentProduct.inventoryCount != 0) {
+      /** Ye block tabhi execute hoga jab currentProduct stock me rahega */
+      if (this.isItemAvailableInCart(currentProduct)) {
+        /**
+         * Ye block tabhi execute hoga jab currentProduct buyer cart array me already available rahega
+         * buyerKaCart = [{}]/ [{}, {}]/ [{}, {}, {}, ...{}];
+         */
+        
+        const buyerCartMeCurrentProductKaIndex = this.buyerKaCart.findIndex(
+          (product: CartProduct) => product.name === currentProduct.name
+        );
+        this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity += 1; 
+        
+        currentProduct.quantity = this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity;
+        localStorage.setItem('cart', JSON.stringify(this.buyerKaCart));
       } else {
-        this.addItemToCart(product);
+        currentProduct.quantity = currentProduct.quantity ?? 1;
+        /** Ye block tabhi execute hoga jab currentProduct buyer cart me nahi rahega */
+        this.buyerKaCart?.push(currentProduct);
+
+        localStorage.setItem('cart', JSON.stringify(this.buyerKaCart));
       }
     } else {
-      alert('item is not available please try later');
+      /** Ye block tabhi execute hoga jab product stock me nahi rahega */
+      alert(`${currentProduct.name} is not available in stock, please try later`);
     }
-
-    // -----------------//
-
-    if (product && product.quantity == 0) {
-      product.quantity + 1;
-    }
-    this.cartProduct?.push(product);
-    localStorage.setItem('cart', JSON.stringify(this.cartProduct));
-    console.log(this.cartProduct);
   }
 
+  /**
+   * Checking the product is available in localstorage
+   * @param product
+   * @returns
+   */
   private isItemAvailableInCart(product: CartProduct): boolean {
-    //return true;
-    let cartItems: any = localStorage.getItem('cart');
+    let cartItems: any = localStorage.getItem('cart') ?? '[]';
     cartItems = JSON.parse(cartItems);
-    if (cartItems != null) {
-      return true;
-    } else {
-      return false;
-    }
+    console.log('cartItems:=', typeof cartItems);
+
+    const isItemAvailable: boolean = cartItems.some(
+      (item: CartProduct) => item.name === product.name
+    );
+    return isItemAvailable;
   }
 
-  private addItemToCart(product: CartProduct) {
-    let cartItems: any = localStorage.getItem('cart');
-    cartItems = JSON.parse(cartItems);
-    cartItems.push(product);
-  }
+  // private addItemToCart(product: CartProduct) {
+  //   this.cartProduct?.push(product);
+  //   localStorage.setItem('cart', JSON.stringify(this.cartProduct));
+  // }
 }
