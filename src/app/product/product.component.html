@@ -1,5 +1,5 @@
 <section class="container">
-  <ng-container *ngFor="let product of productDetails">
+  <ng-container *ngFor="let product of productDetails; let i = index">
     <div class="product">
       <img src="{{ product.image }}" alt="" />
       <h3 class="mp-0">
@@ -13,7 +13,7 @@
         </button>
         <div class="flex quantity-group">
           <button (click)="handleQuantity(product, 'min')">-</button>
-          <input type="text" value="{{ product.quantity }}" />
+          <input type="text" value="{{ syncQuantity(product) }}" />
           <button (click)="handleQuantity(product, 'plus')">+</button>
         </div>
       </div>

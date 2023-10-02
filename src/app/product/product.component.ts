@@ -17,9 +17,21 @@ export class ProductComponent implements OnInit {
 
   ngOnInit(): void {
     this.testService.getProducts().subscribe((res: any[]) => {
-      res.map((produt) => (produt.quantity = 0));
+      res.map((product) => (product.quantity = 0));
       this.productDetails = res;
     });
+  }
+
+  syncQuantity(currentProduct: CartProduct) {
+    const buyerCartMeCurrentProductKaIndex = this.buyerKaCart.findIndex(
+      (product: CartProduct) => product.name === currentProduct.name
+    );
+    // this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity;
+
+    currentProduct.quantity =
+      this.buyerKaCart[buyerCartMeCurrentProductKaIndex]?.quantity;
+
+    return currentProduct.quantity ? currentProduct.quantity : 0;
   }
 
   /**
@@ -34,10 +46,15 @@ export class ProductComponent implements OnInit {
       product.quantity != undefined &&
       product.quantity < (product.inventoryCount || 0)
     ) {
-      ++product.quantity;
+      this.addToCart(product);
     } else if (val === 'min' && product.quantity && product.quantity > 1) {
-      console.log('else');
-      --product.quantity;
+      const buyerCartMeCurrentProductKaIndex = this.buyerKaCart.findIndex(
+        (items: CartProduct) => items.name === product.name
+      );
+      this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity -= 1;
+      product.quantity =
+        this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity;
+      localStorage.setItem('cart', JSON.stringify(this.buyerKaCart));
     }
   }
 
@@ -47,7 +64,7 @@ export class ProductComponent implements OnInit {
 - if available in cart, increment their quantity  - Done
 - if not available in cart, push item to cart - Done
 - same product should not be added - Done
-- product quantity should be sync in cart and product tile
+- product quantity should be sync in cart and product tile  
   */
 
   /**
@@ -63,16 +80,19 @@ export class ProductComponent implements OnInit {
          * Ye block tabhi execute hoga jab currentProduct buyer cart array me already available rahega
          * buyerKaCart = [{}]/ [{}, {}]/ [{}, {}, {}, ...{}]; a
          */
-        
+
         const buyerCartMeCurrentProductKaIndex = this.buyerKaCart.findIndex(
           (product: CartProduct) => product.name === currentProduct.name
         );
-        this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity += 1; 
+        this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity += 1;
 
-        currentProduct.quantity = this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity;
+        currentProduct.quantity =
+          this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity;
         localStorage.setItem('cart', JSON.stringify(this.buyerKaCart));
       } else {
-        currentProduct.quantity = currentProduct.quantity ?? 1;
+        currentProduct.quantity = currentProduct.quantity
+          ? currentProduct.quantity
+          : 1;
         /** Ye block tabhi execute hoga jab currentProduct buyer cart me nahi rahega */
         this.buyerKaCart?.push(currentProduct);
 
@@ -80,7 +100,9 @@ export class ProductComponent implements OnInit {
       }
     } else {
       /** Ye block tabhi execute hoga jab product stock me nahi rahega */
-      alert(`${currentProduct.name} is not available in stock, please try later`);
+      alert(
+        `${currentProduct.name} is not available in stock, please try later`
+      );
     }
   }
 
@@ -99,9 +121,4 @@ export class ProductComponent implements OnInit {
     );
     return isItemAvailable;
   }
-
-  // private addItemToCart(product: CartProduct) {
-  //   this.cartProduct?.push(product);
-  //   localStorage.setItem('cart', JSON.stringify(this.cartProduct));
-  // }
 }
