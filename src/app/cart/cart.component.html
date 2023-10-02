@@ -29,8 +29,17 @@
           <button class="form-button" (click)="removeToCart(cart.id)">
             Remove
           </button>
+          <br /><br />
+          <p>
+            <strong>SubTotal :</strong>
+            {{ cart.quantity * cart.price | currency : "INR" }}
+            >
+          </p>
         </li>
       </ul>
     </div>
+    <ul class="grand-total">
+      <li>Grand Total :</li>
+    </ul>
   </div>
 </div>
