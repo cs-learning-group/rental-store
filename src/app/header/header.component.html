@@ -24,7 +24,7 @@
           <a routerLink="/auth/login">Login</a>
         </li>
         <li>
-          <a routerLink="/cart">Cart(🛒)</a>
+          <a routerLink="/cart">Cart({{ cartLength }})</a>
         </li>
         <li (click)="logout()"><a *ngSwitchCase="'loginSucess'">Logout</a></li>
       </ul>

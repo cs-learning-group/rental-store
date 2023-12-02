@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CartProduct } from '../typings';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   menuType: string = '';
-
+  cartLength: any = 0;
   constructor(private router: Router) {}
 
   ngOnInit(): void {
@@ -20,6 +21,8 @@ export class HeaderComponent implements OnInit {
         }
       }
     });
+    this.cartLength = localStorage.getItem('cart');
+    this.cartLength = JSON.parse(this.cartLength)?.length;
   }
 
   logout() {

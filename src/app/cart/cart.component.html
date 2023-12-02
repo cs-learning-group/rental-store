@@ -32,14 +32,16 @@
           <br /><br />
           <p>
             <strong>SubTotal :</strong>
-            {{ cart.quantity * cart.price | currency : "INR" }}
+            {{ cartCalculation(cart.quantity, cart.price) }}
             >
           </p>
         </li>
       </ul>
     </div>
-    <ul class="grand-total">
-      <li>Grand Total :</li>
+    <ul class="grand-total" id="gd">
+      <li>
+        <strong>GrandTotal :</strong><u>{{ grandtotal | currency : "INR" }}</u>
+      </li>
     </ul>
   </div>
 </div>

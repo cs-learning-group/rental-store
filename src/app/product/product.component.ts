@@ -24,7 +24,7 @@ export class ProductComponent implements OnInit {
 
   syncQuantity(currentProduct: CartProduct) {
     const buyerCartMeCurrentProductKaIndex = this.buyerKaCart.findIndex(
-      (product: CartProduct) => product.name === currentProduct.name
+      (product: CartProduct) => product.id === currentProduct.id
     );
     // this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity;
 
@@ -49,7 +49,7 @@ export class ProductComponent implements OnInit {
       this.addToCart(product);
     } else if (val === 'min' && product.quantity && product.quantity > 1) {
       const buyerCartMeCurrentProductKaIndex = this.buyerKaCart.findIndex(
-        (items: CartProduct) => items.name === product.name
+        (items: CartProduct) => items.id === product.id
       );
       this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity -= 1;
       product.quantity =
@@ -82,7 +82,7 @@ export class ProductComponent implements OnInit {
          */
 
         const buyerCartMeCurrentProductKaIndex = this.buyerKaCart.findIndex(
-          (product: CartProduct) => product.name === currentProduct.name
+          (product: CartProduct) => product.id === currentProduct.id
         );
         this.buyerKaCart[buyerCartMeCurrentProductKaIndex].quantity += 1;
 
@@ -117,7 +117,7 @@ export class ProductComponent implements OnInit {
     console.log('cartItems:=', typeof cartItems);
 
     const isItemAvailable: boolean = cartItems.some(
-      (item: CartProduct) => item.name === product.name
+      (item: CartProduct) => item.id === product.id
     );
     return isItemAvailable;
   }
